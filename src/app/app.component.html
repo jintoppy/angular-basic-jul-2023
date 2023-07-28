@@ -1,6 +1,16 @@
-<app-slideshow [imgList]="dogImages" slideshowTitle="Dogs"></app-slideshow>
+<h2 *ngIf="dogSlideshowEnded">Dog slideshow has ended</h2>
+<h2 *ngIf="catSlideshowEnded">Cat slideshow has ended</h2>
+<app-slideshow
+  [imgList]="dogImages"
+  slideshowTitle="Dogs"
+  (onSlideshowEnd)="handleDogSlideshowEnd()"
+></app-slideshow>
 
-<app-slideshow [imgList]="catImages" slideshowTitle="Cats"></app-slideshow>
+<app-slideshow
+  [imgList]="catImages"
+  slideshowTitle="Cats"
+  (onSlideshowEnd)="handleCatSlideshowEnd()"
+></app-slideshow>
 <!-- <app-github-users></app-github-users> -->
 <!-- <app-user-details
   userName="asdfa"

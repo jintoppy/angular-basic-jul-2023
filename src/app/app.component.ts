@@ -83,4 +83,15 @@ export class AppComponent {
     'https://img.freepik.com/free-photo/red-white-cat-i-white-studio_155003-13189.jpg?size=626&ext=jpg',
     'https://cdn.britannica.com/25/7125-050-67ACEC3C/Abyssinian-sorrel.jpg',
   ];
+
+  catSlideshowEnded = false;
+  dogSlideshowEnded = false;
+
+  handleDogSlideshowEnd() {
+    this.dogSlideshowEnded = true;
+  }
+
+  handleCatSlideshowEnd() {
+    this.catSlideshowEnded = true;
+  }
 }

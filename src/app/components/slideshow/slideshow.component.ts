@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-slideshow',
@@ -12,11 +12,14 @@ export class SlideshowComponent {
   @Input()
   slideshowTitle: string = '';
 
+  @Output()
+  onSlideshowEnd: EventEmitter<void> = new EventEmitter();
+
   activeIndex = 0;
 
   next() {
     if (this.activeIndex === this.imgList.length - 1) {
-      this.activeIndex = 0;
+      this.onSlideshowEnd.emit();
       return;
     }
     this.activeIndex++;
