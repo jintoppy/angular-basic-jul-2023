@@ -1,0 +1,17 @@
+<div>
+  <input type="text" [(ngModel)]="searchText" />
+  <button (click)="onSearch()">Search</button>
+
+  <div>
+    <h2>Selected User</h2>
+  </div>
+
+  <div class="result">
+    <div class="card" *ngFor="let user of users">
+      <app-github-user-details
+        [user]="user"
+        (onUserSelect)="handleUserSelect()"
+      ></app-github-user-details>
+    </div>
+  </div>
+</div>

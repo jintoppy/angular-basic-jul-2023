@@ -10,11 +10,19 @@ import { AppService } from './app.service';
 export class AppComponent {
   imgUrl = 'https://i.imgur.com/XgbZdeA.jpeg';
   title = 'angular-basic';
+  student1 = 'Arun';
+  student2 = 'Ajay';
   value: string = '';
   users: User[] = [];
   classes = {
     name: true,
     filled: false,
+  };
+
+  student1Details: User = {
+    name: 'aaaa',
+    age: 10,
+    id: '10',
   };
 
   styles = {
@@ -28,9 +36,12 @@ export class AppComponent {
   constructor(private appSvc: AppService) {}
 
   ngOnInit() {
-    this.appSvc.getUsers().subscribe((users) => {
-      this.users = users;
-      this.filteredUsers = [...this.users];
+    this.appSvc.getUsers().subscribe({
+      next: (users) => {
+        this.users = users;
+        this.filteredUsers = [...this.users];
+      },
+      error: () => {},
     });
   }
 

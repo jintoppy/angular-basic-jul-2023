@@ -1,0 +1,10 @@
+.item {
+  border: 1px solid #888;
+  padding: 10px;
+  margin: 10px;
+}
+
+img {
+  width: 200px;
+  height: auto;
+}
