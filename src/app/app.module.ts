@@ -7,9 +7,10 @@ import { AppComponent } from './app.component';
 import { UserDetailsComponent } from './components/user-details/user-details.component';
 import { GithubUsersComponent } from './components/github-users/github-users.component';
 import { GithubUserDetailsComponent } from './components/github-user-details/github-user-details.component';
+import { SlideshowComponent } from './components/slideshow/slideshow.component';
 
 @NgModule({
-  declarations: [AppComponent, UserDetailsComponent, GithubUsersComponent, GithubUserDetailsComponent],
+  declarations: [AppComponent, UserDetailsComponent, GithubUsersComponent, GithubUserDetailsComponent, SlideshowComponent],
   imports: [BrowserModule, FormsModule, HttpClientModule],
   providers: [],
   bootstrap: [AppComponent],
