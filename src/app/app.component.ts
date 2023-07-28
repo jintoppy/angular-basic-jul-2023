@@ -1,9 +1,6 @@
 import { Component } from '@angular/core';
-
-type User = {
-  name: string;
-  age: number;
-};
+import { User } from './types';
+import { AppService } from './app.service';
 
 @Component({
   selector: 'app-root',
@@ -14,6 +11,7 @@ export class AppComponent {
   imgUrl = 'https://i.imgur.com/XgbZdeA.jpeg';
   title = 'angular-basic';
   value: string = '';
+  users: User[] = [];
   classes = {
     name: true,
     filled: false,
@@ -24,12 +22,17 @@ export class AppComponent {
     'font-weight': 400,
   };
 
-  users: User[] = [
-    { name: 'Abc', age: 10 },
-    { name: 'Def', age: 10 },
-  ];
-  filteredUsers = [...this.users];
+  filteredUsers: User[] = [];
   selectedUser: User | null = null;
+
+  constructor(private appSvc: AppService) {}
+
+  ngOnInit() {
+    this.appSvc.getUsers().subscribe((users) => {
+      this.users = users;
+      this.filteredUsers = [...this.users];
+    });
+  }
 
   filterUsers() {
     this.filteredUsers = this.users.filter((user) =>
